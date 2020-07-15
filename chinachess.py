@@ -143,9 +143,9 @@ def gun(table,start,end,piece_end) :
     end_y = end[1]
     if start_x == end_x :
         if start_y < end_y :
-            cut_y = table[start_x][start_y+1 : end_y-1]
+            cut_y = table[start_x][start_y+1 : end_y]
         else :
-            cut_y = table[start_x][end_y+1 : start_y-1]
+            cut_y = table[start_x][end_y : start_y-1]
         for i in cut_y :
             if i != '\u3000' :
                 shelf = shelf+1
@@ -157,9 +157,9 @@ def gun(table,start,end,piece_end) :
             return 0
     elif start_y == end_y :
         if start_x <end_x :
-            cut_x = table.T[start_y][start_x+1 : end_x-1]
+            cut_x = table.T[start_y][start_x : end_x]
         else :
-            cut_x = table.T[start_y][end_x+1 : start_x-1]
+            cut_x = table.T[start_y][end_x : start_x]
         for i in cut_x :
             if i != '\u3000' :
                 shelf = shelf+1
@@ -280,11 +280,11 @@ def piece(color_step,table,group) :
         if color_step%2 == 0 :
             color = 'red'
             color_else = 'black'
-            group = group[0]
+            group_copy = group[0]
         else :
             color = 'black'
             color_else = 'red'
-            group = group[1]
+            group_copy = group[1]
         color_move = input('[' + color + ']' + ">>>" +' ')
         if color_move == '认输' :
             print('['+ color_else + ']' +' ' + 'win')
@@ -293,7 +293,7 @@ def piece(color_step,table,group) :
             exit()
         color_start = color_move[:2]
         color_end = color_move[2:]
-        color_err = err(table,color_start,color_end,group,color)
+        color_err = err(table,color_start,color_end,group_copy,color)
         if color_err == 0 :
             print("不符合规则，请重试")
         else :
