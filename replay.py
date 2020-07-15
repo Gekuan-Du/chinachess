@@ -10,6 +10,7 @@ for i in range(len(move_list)) :
     move_list[i] = line
 table = table.table
 print_table(table)
+time.sleep(0.5)
 for i in range(len(move_list)) :
     start = move_list[i][:2]
     end = move_list[i][2:]
