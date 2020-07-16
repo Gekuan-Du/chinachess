@@ -217,7 +217,7 @@ def horse(table,start,end) :
     elif horse_abs_x == 1:
         if horse_y == 2 and table[list_start[1]-1,list_start[0]] == '\u3000':
             return 1
-        elif horse_abs_y == -2 and table[list_start[1]+1,list_start[0] ] == '\u3000':
+        elif horse_y == -2 and table[list_start[1]+1,list_start[0] ] == '\u3000':
             return 1
         else :
             return 0
