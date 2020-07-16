@@ -141,6 +141,8 @@ def gun(table,start,end,piece_end) :
     start_y = start[1]
     end_x = end[0]
     end_y = end[1]
+    table_t = table.T.tolist()
+    table = table.tolist()
     if start_x == end_x :
         if start_y < end_y :
             cut_y = table[start_x][start_y+1 : end_y]
@@ -157,9 +159,9 @@ def gun(table,start,end,piece_end) :
             return 0
     elif start_y == end_y :
         if start_x <end_x :
-            cut_x = table.T[start_y][start_x : end_x]
+            cut_x = table_t[start_y][start_x+1 : end_x]
         else :
-            cut_x = table.T[start_y][end_x : start_x]
+            cut_x = table_t[start_y][end_x : start_x]
         for i in cut_x :
             if i != '\u3000' :
                 shelf = shelf+1
